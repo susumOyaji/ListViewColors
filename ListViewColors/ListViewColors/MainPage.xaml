@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ListViewColors"
+             x:Class="ListViewColors.MainPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="10, 20, 10, 0" />
+            <On Platform="Android, UWP" Value="10, 0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ListView SeparatorVisibility="Default"
+              ItemsSource="{x:Static local:NamedColor.All}">
+        <ListView.RowHeight>
+            <OnPlatform x:TypeArguments="x:Int32">
+                <On Platform="iOS, Android" Value="100" />
+                <On Platform="UWP" Value="90" />
+            </OnPlatform>
+        </ListView.RowHeight>
+        
+        
+        
+        
+        
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ContentView Padding="5">
+                        <Frame OutlineColor="Red" Padding="10">
+                           
+                               
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" >
+
+                                <Grid RowSpacing="0" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="Red">
+                                    <!-- 行の定義 -->
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="50"/>
+                                    </Grid.RowDefinitions>
+                                    <!-- 列の定義 -->
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.5*"/>
+                                        <ColumnDefinition Width="0.5*"/>
+                                       
+                                    </Grid.ColumnDefinitions>
+
+                                    <!--
+                                    <BoxView Color="{Binding Color}"
+                                           WidthRequest="50"
+                                           HeightRequest="50"
+                                           Grid.Row="0"
+                                           Grid.Column="0"/>
+                                    -->
+                                    <Label Text="{Binding FriendlyName}"
+                                           FontSize="22"
+                                           VerticalOptions="StartAndExpand"
+                                           Grid.Row="0"
+                                           Grid.Column="0"/>
+                                    <Label Text="{Binding RgbDisplay, StringFormat='RGB = {0}'}"
+                                           FontSize="16"
+                                           VerticalOptions="CenterAndExpand"
+                                           Grid.Row="0"
+                                           Grid.Column="1"/>
+                                    <Label Text="Text3"
+                                           FontSize="16"
+                                           VerticalOptions="CenterAndExpand"
+                                           Grid.Row="1"
+                                           Grid.Column="0"/>
+                                    <Label Text="Text4"
+                                           FontSize="16"
+                                           VerticalOptions="CenterAndExpand"
+                                           Grid.Row="1"
+                                           Grid.Column="1"/>
+                                </Grid>
+                            </StackLayout>
+                              
+                        </Frame>
+                    </ContentView>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>    
